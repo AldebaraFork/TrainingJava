@@ -2,13 +2,15 @@
 public class Main {
     public static void main(String[] args) {
         {
-          int x = 0;
-          int y = 5;
+         int x = 10;
+         int y = 20;
+         while (x < y)
+         {
+             x++;
+             System.out.println(x);
 
-
-          for (int i = 0; x <= 5; x++) {
-
-          }
+         }
+            System.out.println("Primeiro codigo em java! ");
 
         }
     }

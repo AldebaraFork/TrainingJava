@@ -1,8 +1,10 @@
 import java.util.Scanner;
+
 public class Menu {
     
     public  void MenuPrincipal(){
         Scanner ler = new Scanner(System.in);
+        
         DadosPessoa pessoa = new DadosPessoa();
         System.out.println("Bem vindo ao menu principal! Selecione uma opção abaixo");
         System.out.println("1 - Cadastrar cliente");
@@ -15,7 +17,7 @@ public class Menu {
                 pessoa.CadastrarCliente();                   
                 break;
             case 2:
-    
+                pessoa.VisualizarClientes();
                 break;
             case 3:
     
@@ -24,6 +26,9 @@ public class Menu {
                System.exit(1);
                 break;
             default:
+               System.out.print("\033[H\033[2J"); 
+               System.out.println("Opção invalida! tente novamente");
+               MenuPrincipal();
                 break;
         }
  }

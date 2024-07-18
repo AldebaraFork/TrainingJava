@@ -1,17 +1,30 @@
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
    public class DadosPessoa {
+ 
 
       public String Nome;
 
       public Short Idade;
 
-      protected String Email;
+      public String Email;
 
-               public void CadastrarCliente(){
+      public void Usuario(String nome, String email, Short idade) {
+         this.Nome = nome;
+         this.Email = email;
+         this.Idade = idade;
+     }
+
+
+      public void CadastrarCliente(){
+
+         ArrayList<DadosPessoa> usuarios = new ArrayList<>();
 
                   //INSTANCIAS
+                     DadosPessoa usuario = new DadosPessoa();
                      Menu menu = new Menu();
                      Scanner ler = new Scanner(System.in);
             try {
@@ -52,16 +65,30 @@ import java.util.Scanner;
                            //EMAIL VALIDO
                            else
                            {
-                              //MOSTRA OS DADOS QUE O USUARIO O INSERIU 
+                         //MOSTRA OS DADOS QUE O USUARIO O INSERIU             
+                           System.out.print("\033[H\033[2J");     
                            System.out.println("Email validado com sucesso! Dados inseridos abaixo:");
-                           System.out.println("Nome: " + Nome + ", Idade: " + Idade + ", Email: " + Email);
-                           wait(3000);
-                           menu.MenuPrincipal();
-                           }                
+                           System.out.println("Nome: " + Nome + ", Idade: " + Idade + ", Email: " + Email);  
+                          
+                           
+                           //PERGUNTA SE O USUARIO DESEJA CADASTRAR O CLIENTE NA LISTA
+                           System.out.println("Deseja salvar o usuário? (S/N)");
+                           String continuar = ler.next().toUpperCase();
+
+                           //SE DESEJA CADASTRAR
+                           if (continuar == "S" || continuar == "SIM") {
+                              System.out.println("Usuario Salvo com sucesso");
+                              usuarios.add(usuario);
+                           }
+                           
+                           //CASO NAO DESEJE CADASTRAR
+                           else if (continuar == "N" || continuar == "NAO"){
+                             System.out.println("Retornando ao menu");
+                             menu.MenuPrincipal();
+                           }         
                         }
-                        
                      }
-                     
+                  }  
             //VALIDAÇÃO DE ERROS
             } catch (Exception ex) {
                System.out.println("Ocorreu um erro: " + ex.getMessage() + ". Tente novamente.");
@@ -69,7 +96,15 @@ import java.util.Scanner;
             // Fechamento do scanner para evitar vazamento de dados
             ler.close();
       } 
-
-            }
-         }
+   }
+   public void VisualizarClientes(){
+      ArrayList<DadosPessoa> usuarios = new ArrayList<>();
+       //EXIBE A LISTA DE USUARIOS CADASTRADOS
+       System.out.println("\nLista de Usuários Cadastrados:");
+       for (DadosPessoa usuariDadosPessoa : usuarios) {
+           System.out.println(usuariDadosPessoa);
+           System.out.println("------------------------");
+       }
+   }
+ }
               

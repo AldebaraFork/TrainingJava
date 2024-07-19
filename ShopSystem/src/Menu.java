@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
     //INSTANCIAS
     public static Scanner ler = new Scanner(System.in);
+    static GerenciarClientes gerenciar = new GerenciarClientes();
 
     static void MenuPrincipal() {
 
@@ -17,7 +18,7 @@ public class Menu {
 
             //GERENCIA OS CLIENTES
             case 1:
-
+                 MenuClientes();
                 break;
             //GERENCIA OS PRODUTOS
             case 2:
@@ -43,6 +44,7 @@ public class Menu {
 
             //ADICIONA CLIENTES
             case 1:
+                gerenciar.CadastrarCliente();
                 break;
 
             //REMOVE CLIENTES
@@ -51,6 +53,7 @@ public class Menu {
 
             //VISUALIZA CLIENTES CADASTRADOS
             case 3:
+                gerenciar.VerClientes();
                 break;
             //RETORNA AO MENU PRINCIPAL
             case 4:
@@ -107,5 +110,10 @@ public class Menu {
 
         }
     }
+
+    static void RetornarMenuPrincipal(){
+        MenuPrincipal();
+    }
+
 
 }

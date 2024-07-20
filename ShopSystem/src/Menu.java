@@ -27,6 +27,10 @@ public class Menu {
             case 0:
                 System.exit(0);
                 break;
+            default:
+                System.out.println("Opção invalida, tente novamente");
+                MenuPrincipal();
+                break;
         }
 
     }
@@ -49,6 +53,7 @@ public class Menu {
 
             //REMOVE CLIENTES
             case 2:
+                gerenciar.ExcluirClientes();
                 break;
 
             //VISUALIZA CLIENTES CADASTRADOS

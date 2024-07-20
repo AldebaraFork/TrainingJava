@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class GerenciarClientes {
@@ -6,6 +7,7 @@ public class GerenciarClientes {
     //INSTANCIAR
     public static Scanner ler = new Scanner(System.in);
     static ArrayList<GerenciarClientes> usuarios = new ArrayList<>();
+
     Menu menu = new Menu();
 
 
@@ -16,8 +18,10 @@ public class GerenciarClientes {
 
 
 
+//METODOS DO CLIENTE
 
 
+    //CADASTRA NOVOS CLIENTES
     public void CadastrarCliente() {
 
         //OBTEM OS DADOS DO CLIENTE PARA SALVAR
@@ -26,7 +30,7 @@ public class GerenciarClientes {
             //VALIDA O NOME DO CLIENTE
             System.out.print("\033[H\033[2J");
             System.out.println("Digite o nome do cliente:");
-            Nome = ler.next();
+            Nome = ler.next().toUpperCase();
             if (Nome.isEmpty()) {
                 System.out.println("Nome invalido tente novamente");
                 CadastrarCliente();
@@ -86,7 +90,11 @@ public class GerenciarClientes {
 
     }
 
+
+    //VE OS CLIENTES CADASTRADOS
     public static void VerClientes(){
+        //INSTANCIAS
+        Menu menu = new Menu();
 
         //EXIBE A LISTA DE USUARIOS CADASTRADOS
         System.out.println("\nLista de Usuários Cadastrados:");
@@ -95,6 +103,47 @@ public class GerenciarClientes {
             System.out.println("Email: " + usuario.Email);
             System.out.println("Idade: " + usuario.Idade);
             System.out.println("-------------------------");
+        }
+        menu.RetornarMenuPrincipal();
+    }
+
+
+    //EXCLUI CLIENTES REGISTRADOS
+    public static void ExcluirClientes(){
+        //INSTANCIAS
+        Menu menu = new Menu();
+        GerenciarClientes novoCliente = new GerenciarClientes();
+
+        //CASO NAO TENHAM USUARIOS CADASTRADOS
+
+        try {
+            if (usuarios.isEmpty()) {
+                System.out.println("Não há usuários cadastrados, Tente cadastrar um usuario");
+                Menu.RetornarMenuPrincipal();
+            }
+
+            //METODO PRINCIPAL
+            System.out.print("\033[H\033[2J");
+            System.out.println("Digite o nome do cliente que deseja excluir: ");
+            String nomeExcluir = ler.next().toUpperCase();
+
+            //VERIFICA O NOME DO USUARIO
+            for (GerenciarClientes cliente : usuarios) {
+                if (cliente.Nome.equals(nomeExcluir)) {
+                    // REMOVE O CLIENTE ENCONTRADO
+                    usuarios.remove(cliente);
+                    System.out.println("Cliente " + nomeExcluir + " excluído com sucesso!");
+                    break; // PARA O LOOP APÓS REMOVER O PRIMEIRO CLIENTE ENCONTRADO
+                }
+            }
+
+            //RETORNA AO MENU PRINCIPAL
+            menu.RetornarMenuPrincipal();
+        }catch(Exception ex) {
+          System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }finally{
+            //EVITA VAZAR DADOS
+            ler.close();
         }
     }
 

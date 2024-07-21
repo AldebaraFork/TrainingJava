@@ -7,7 +7,6 @@ public class GerenciarClientes {
     //INSTANCIAR
     public static Scanner ler = new Scanner(System.in);
     static ArrayList<GerenciarClientes> usuarios = new ArrayList<>();
-
     Menu menu = new Menu();
 
 
@@ -95,8 +94,8 @@ public class GerenciarClientes {
     public static void VerClientes(){
         //INSTANCIAS
         Menu menu = new Menu();
-
         //EXIBE A LISTA DE USUARIOS CADASTRADOS
+        System.out.print("\033[H\033[2J");
         System.out.println("\nLista de Usuários Cadastrados:");
         for (GerenciarClientes usuario : usuarios) {
             System.out.println("Nome: " + usuario.Nome);

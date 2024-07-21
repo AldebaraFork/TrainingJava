@@ -22,6 +22,7 @@ public class Menu {
                 break;
             //GERENCIA OS PRODUTOS
             case 2:
+                MenuProdutos();
                 break;
             //SAI DO PROGRAMA
             case 0:
@@ -80,7 +81,9 @@ public class Menu {
 
     }
 
-    static void MenuProdutos() {
+    static void MenuProdutos()
+    {
+        GerenciarProdutos gerencia = new GerenciarProdutos();
         System.out.print("\033[H\033[2J");
         System.out.println("Menu produtos! Digite o numero para as opções abaixo:");
         System.out.println("1 - Adicionar produto");
@@ -93,9 +96,11 @@ public class Menu {
 
             //ADICIONA PRODUTOS
             case 1:
+                gerencia.CadastrarProduto();
                 break;
             //REMOVE PRODUTOS
             case 2:
+                gerencia.VisualizarProdutos();
                 break;
             //VER PRODUTOS
             case 3:

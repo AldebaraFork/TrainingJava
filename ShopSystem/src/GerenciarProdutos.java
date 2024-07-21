@@ -112,7 +112,35 @@ public class GerenciarProdutos {
             System.out.println("ID: " + produto.IdProduto);
             System.out.println("-------------------------");
         }
+        menu.RetornarMenuPrincipal();
 
 
+
+    }
+
+
+    //EXCLUI UM PRODUTO CADASTRADO
+    public void ExcluirProduto(){
+
+
+
+
+        //METODO PRINCIPAL
+        System.out.print("\033[H\033[2J");
+        System.out.println("Digite o nome do cliente que deseja excluir: ");
+        String nomeExcluir = ler.next().toUpperCase();
+
+        //VERIFICA O NOME DO USUARIO
+        for (GerenciarProdutos produtos1 : produtos) {
+            if (produtos1.Nome.equals(nomeExcluir)) {
+                // REMOVE O CLIENTE ENCONTRADO
+                produtos.remove(produtos1);
+                System.out.println("Produto: " + nomeExcluir + " excluído com sucesso!");
+                break; // PARA O LOOP APÓS REMOVER O PRIMEIRO CLIENTE ENCONTRADO
+            }else if (nomeExcluir.isEmpty()){
+                System.out.println("Insira um valor valido !");
+                menu.RetornarMenuPrincipal();
+            }
+        }
     }
 }

@@ -100,13 +100,15 @@ public class Menu {
                 break;
             //REMOVE PRODUTOS
             case 2:
-                gerencia.VisualizarProdutos();
+                gerencia.ExcluirProduto();
                 break;
             //VER PRODUTOS
             case 3:
+                gerencia.VisualizarProdutos();
                 break;
             //VOLTAR AO MENU PRINCIPAL
             case 4:
+                RetornarMenuPrincipal();
                 break;
             //SAIR
             case 0:

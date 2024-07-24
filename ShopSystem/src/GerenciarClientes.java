@@ -124,7 +124,7 @@ public class GerenciarClientes {
             //METODO PRINCIPAL
             System.out.print("\033[H\033[2J");
             System.out.println("Digite o nome do cliente que deseja excluir: ");
-            String nomeExcluir = ler.next().toUpperCase();
+            String nomeExcluir = ler.nextLine().toUpperCase();
 
             //VERIFICA O NOME DO USUARIO
             for (GerenciarClientes cliente : usuarios) {

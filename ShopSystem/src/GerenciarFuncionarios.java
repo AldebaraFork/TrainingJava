@@ -133,9 +133,29 @@ public class GerenciarFuncionarios {
         }
     }
 
+    //EXCLUI FUNCIONARIOS CADASTRADOS
     public void ExcluirFuncionario(){
         try{
+            System.out.print("\033[H\033[2J");
+            System.out.println("Digite o nome do usuario que deseja remover: ");
+            String RemoveFuncionario = ler.nextLine().toUpperCase();
+            //VERIFICA SE O NOME DO FUNCIONARIO EXISTE E EXCLUI
+            for (GerenciarFuncionarios funcionarios1 : funcionarios) {
+                if (funcionarios1.Nome.equals(RemoveFuncionario)) {
+                    // REMOVE O CLIENTE ENCONTRADO
+                    funcionarios.remove(funcionarios1);
+                    System.out.println("Funcionario: " + RemoveFuncionario + " excluído com sucesso!");
+                    break; // PARA O LOOP APÓS REMOVER O PRIMEIRO CLIENTE ENCONTRADO
+                }
 
+            }
+            menu.RetornarMenuPrincipal();
+        }
+        //TRATAMENTO DE ERRO
+        catch(Exception ex){
+            System.out.println("Ocorreu o erro: " + ex.getMessage());
+        }finally{
+            ler.close();
         }
 
     }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
     //INSTANCIAS
     public static Scanner ler = new Scanner(System.in);
-    static GerenciarClientes gerenciar = new GerenciarClientes();
+
 
     static void MenuPrincipal() {
 
@@ -12,6 +12,7 @@ public class Menu {
         System.out.println("Bem vindo ao menu principal! Digite o numero das opções abaixo");
         System.out.println("1 - Gerenciar clientes");
         System.out.println("2 - Gerenciar produtos");
+        System.out.println("3 - Gerenciar funcionarios");
         System.out.println("0 - Sair");
         short OpcaoMenuPrincipal = ler.nextShort();
         switch (OpcaoMenuPrincipal) {
@@ -23,6 +24,9 @@ public class Menu {
             //GERENCIA OS PRODUTOS
             case 2:
                 MenuProdutos();
+                break;
+            case 3:
+                MenuFuncionarios();
                 break;
             //SAI DO PROGRAMA
             case 0:
@@ -37,6 +41,7 @@ public class Menu {
     }
 
     static void MenuClientes() {
+        GerenciarClientes gerenciar = new GerenciarClientes();
         System.out.print("\033[H\033[2J");
         System.out.println("Menu de gerenciamento de clientes! digite o numero das opções abaixo");
         System.out.println("1 - Adicionar cliente");
@@ -124,13 +129,38 @@ public class Menu {
     }
 
     static void MenuFuncionarios(){
+        GerenciarFuncionarios gerencia = new GerenciarFuncionarios();
         System.out.print("\033[H\033[2J");
         System.out.println("Bem vindo ao menu de funcionarios! Escolha uma opção abaixo");
         System.out.println("1 - Cadastrar funcionario");
-        System.out.println("2 - Excluir funcionario");
-        System.out.println("3 - Ver funcionarios");
+        System.out.println("2 - Ver funcionario");
+        System.out.println("3 - Excluir funcionarios");
         System.out.println("4 - Voltar ao menu principal");
         System.out.println("0 - Sair");
+        byte EscolhaFuncionario = ler.nextByte();
+        switch (EscolhaFuncionario) {
+            case 1:
+                gerencia.CadastrarFuncionario();
+                break;
+            case 2:
+                gerencia.VerFuncionarios();
+                break;
+            case 3:
+                gerencia.ExcluirFuncionario();
+                break;
+            case 4:
+                RetornarMenuPrincipal();
+                break;
+            case 0:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Opção invalida! Tente novamente");
+                MenuFuncionarios();
+
+                break;
+
+        }
     }
 
     static void RetornarMenuPrincipal(){

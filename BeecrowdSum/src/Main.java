@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -7,19 +8,21 @@ public class Main {
         Scanner ler = new Scanner(System.in);
 
 
-      String Nome = ler.nextLine();
+        short CodigoPecas = ler.nextShort();
+        int NumeroPecas = ler.nextInt();
+        double PrecoPecas = ler.nextDouble();
 
-      double Salario = ler.nextDouble();
+        short SegundoCodigoPecas = ler.nextShort();
+        int SegundoNumeroPecas = ler.nextInt();
+        double SegundoPrecoPecas = ler.nextDouble();
 
-      double TotalVendas = ler.nextDouble();
 
-      double porcentagem = 15.0 / 100.0;
+        double ValorPrimeirasPecas = NumeroPecas * PrecoPecas;
+        double ValorSegundaPecas = SegundoNumeroPecas * SegundoPrecoPecas;
 
-      double ValorFinalVendas  = TotalVendas * porcentagem;
+        double ValorTotal = ValorPrimeirasPecas + ValorSegundaPecas;
 
-      double ResultadoFinal = Salario + ValorFinalVendas;
-
-      System.out.println("TOTAL = " + ResultadoFinal);
+        System.out.printf("VALOR A PAGAR: R$ %.2f\n", ValorTotal);
 
     }
 }

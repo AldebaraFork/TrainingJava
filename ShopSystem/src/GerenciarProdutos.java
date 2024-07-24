@@ -18,16 +18,15 @@ public class GerenciarProdutos {
 
 
     //DEFINE AS PROPRIEDADES PARA SALVAR UM NOVO PRODUTO
-    protected int Quantidade;
-    protected String Nome;
-    protected double Preco;
-
+    public int Quantidade;
+    public String Nome;
+    public double Preco;
+    public double PrecoEstoque;
 
 
     public void CadastrarProduto(){
 
-        //INSTANCIAS PARA SALVAR O PRODUTO CADASTRADO
-        GerenciarProdutos novoProduto = new GerenciarProdutos();
+
 
         System.out.print("\033[H\033[2J");
         //OBTEM OS DADOS DO PRODUTO
@@ -60,11 +59,16 @@ public class GerenciarProdutos {
 
             //MOSTRA OS DADOS DO PRODUTO AO CLIENTE
             System.out.println("Informações validadas com sucesso! Dados inseridos:" );
-            System.out.println("Nome: " + NomeProduto + " Preço: " + PrecoProduto + " Quantidade: " + QuantidadeProduto);
+            System.out.println("Nome: " + NomeProduto + ", Preço: " + PrecoProduto + " Quantidade: " + QuantidadeProduto );
 
+
+
+            //INSTANCIAS PARA SALVAR O PRODUTO CADASTRADO
+            GerenciarProdutos novoProduto = new GerenciarProdutos();
             novoProduto.Nome = NomeProduto;
             novoProduto.Preco = PrecoProduto;
             novoProduto.Quantidade = QuantidadeProduto;
+
 
 
 
@@ -103,13 +107,16 @@ public class GerenciarProdutos {
 
 
     public void VisualizarProdutos(){
-        //INSTANCIA PARA RETORNAR AO MENU
-        Menu menu = new Menu();
+
+
         System.out.println("\nLista de Produtos Cadastrados:");
         for(GerenciarProdutos novoProduto : produtos){
+
+            //EXIBE
             System.out.println("Nome: " + novoProduto.Nome);
-            System.out.println("Quantidade: " + novoProduto.QuantidadeProduto);
-            System.out.println("Preço: " + novoProduto.PrecoProduto);
+            System.out.println("Quantidade: " + novoProduto.Quantidade);
+            System.out.println("Preço: " + novoProduto.Preco);
+
             System.out.println("-------------------------");
         }
         menu.RetornarMenuPrincipal();
@@ -125,22 +132,36 @@ public class GerenciarProdutos {
 
 
 
-        //METODO PRINCIPAL
-        System.out.print("\033[H\033[2J");
-        System.out.println("Digite o nome do cliente que deseja excluir: ");
-        String nomeExcluir = ler.next().toUpperCase();
+        try {
+            //METODO PRINCIPAL
+            System.out.print("\033[H\033[2J");
+            System.out.println("Digite o nome do produto que deseja remover do estoque: ");
+            String nomeExcluir = ler.next().toUpperCase();
 
-        //VERIFICA O NOME DO USUARIO
-        for (GerenciarProdutos produtos1 : produtos) {
-            if (produtos1.Nome.equals(nomeExcluir)) {
-                // REMOVE O CLIENTE ENCONTRADO
-                produtos.remove(produtos1);
-                System.out.println("Produto: " + nomeExcluir + " excluído com sucesso!");
-                break; // PARA O LOOP APÓS REMOVER O PRIMEIRO CLIENTE ENCONTRADO
-            }else if (nomeExcluir.isEmpty()){
-                System.out.println("Insira um valor valido !");
-                menu.RetornarMenuPrincipal();
+            //VERIFICA SE O PRODUTO EXISTE E EXCLUI
+            for (GerenciarProdutos produtos1 : produtos) {
+                if (produtos1.Nome.equals(nomeExcluir)) {
+                    // REMOVE O PRODUTO ENCONTRADO
+                    produtos.remove(produtos1);
+                    System.out.println("Produto: " + nomeExcluir + " excluído com sucesso!");
+                    break; // PARA O LOOP APÓS REMOVER O PRIMEIRO CLIENTE ENCONTRADO
+                } else if (nomeExcluir.isEmpty()) {
+                    System.out.println("Insira um valor valido !");
+                    menu.RetornarMenuPrincipal();
+                }else if (nomeExcluir != produtos1.Nome){
+                    System.out.println("Nome invalido!");
+                }
             }
+            menu.RetornarMenuPrincipal();
+
+            //VERIFICAÇÃO DE ERRO
+        }catch(Exception ex){
+            System.out.println("Ocorreu o erro;" + ex.getMessage());
+
+        }finally {
+
+            //EVITA VAZAR DADOS
+            ler.close();
         }
     }
 }

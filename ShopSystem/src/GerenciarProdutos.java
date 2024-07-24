@@ -109,18 +109,27 @@ public class GerenciarProdutos {
     public void VisualizarProdutos(){
 
 
-        System.out.println("\nLista de Produtos Cadastrados:");
-        for(GerenciarProdutos novoProduto : produtos){
+        try {
+            System.out.println("\nLista de Produtos Cadastrados:");
+            for (GerenciarProdutos novoProduto : produtos) {
 
-            //EXIBE
-            System.out.println("Nome: " + novoProduto.Nome);
-            System.out.println("Quantidade: " + novoProduto.Quantidade);
-            System.out.println("Preço: " + novoProduto.Preco);
+                //EXIBE
+                System.out.println("Nome: " + novoProduto.Nome);
+                System.out.println("Quantidade: " + novoProduto.Quantidade);
+                System.out.println("Preço: " + novoProduto.Preco);
 
-            System.out.println("-------------------------");
+                System.out.println("-------------------------");
+            }
+            menu.RetornarMenuPrincipal();
+
         }
-        menu.RetornarMenuPrincipal();
+        //TRATAMENTO DE ERRO
+        catch(Exception ex){
+            System.out.println("Ocorreu o erro:" + ex.getMessage());
 
+        }finally{
+            ler.close();
+        }
 
 
     }

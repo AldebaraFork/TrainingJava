@@ -123,6 +123,16 @@ public class Menu {
         }
     }
 
+    static void MenuFuncionarios(){
+        System.out.print("\033[H\033[2J");
+        System.out.println("Bem vindo ao menu de funcionarios! Escolha uma opção abaixo");
+        System.out.println("1 - Cadastrar funcionario");
+        System.out.println("2 - Excluir funcionario");
+        System.out.println("3 - Ver funcionarios");
+        System.out.println("4 - Voltar ao menu principal");
+        System.out.println("0 - Sair");
+    }
+
     static void RetornarMenuPrincipal(){
         MenuPrincipal();
     }

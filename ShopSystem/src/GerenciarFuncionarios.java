@@ -19,5 +19,27 @@ public class GerenciarFuncionarios {
     protected double Salario;
 
 
+    //METODO PARA CADASTRO DE FUNCIONARIOS
+    public void CadastrarFuncionario(){
+
+        try {
+
+            //OBTEM OS DADOS DO USUARIO E CADASTRA NA LISTA
+            System.out.print("\033[H\033[2J");
+            System.out.println("Insira o nome do funcionario: ");
+            NomeFuncionario = ler.nextLine().toUpperCase();
+            //VERIFICA SE O NOME DO FUNCIONARIO ESTA VAZIO
+            if (NomeFuncionario.isEmpty()) {
+                System.out.println("Insira um valor valido");
+                menu.RetornarMenuPrincipal();
+            }
+
+        }catch(Exception ex){
+
+        }finally{
+            ler.close();
+        }
+
+    }
 
 }

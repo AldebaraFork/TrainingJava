@@ -8,21 +8,17 @@ public class Main {
         Scanner ler = new Scanner(System.in);
 
 
-        short CodigoPecas = ler.nextShort();
-        int NumeroPecas = ler.nextInt();
-        double PrecoPecas = ler.nextDouble();
+        int PrimeiroNumero = ler.nextInt();
+        int SegundoNumero = ler.nextInt();
+        int TerceiroNumero = ler.nextInt();
+        if (PrimeiroNumero > SegundoNumero || SegundoNumero > TerceiroNumero ) {
+            System.out.println(PrimeiroNumero + " eh o maior");
+        }else if (SegundoNumero > PrimeiroNumero || SegundoNumero > TerceiroNumero) {
+            System.out.println(SegundoNumero + " eh o maior");
+        }else if (TerceiroNumero > PrimeiroNumero || TerceiroNumero > SegundoNumero) {
+            System.out.println(TerceiroNumero + " eh o maior");
+        }
 
-        short SegundoCodigoPecas = ler.nextShort();
-        int SegundoNumeroPecas = ler.nextInt();
-        double SegundoPrecoPecas = ler.nextDouble();
-
-
-        double ValorPrimeirasPecas = NumeroPecas * PrecoPecas;
-        double ValorSegundaPecas = SegundoNumeroPecas * SegundoPrecoPecas;
-
-        double ValorTotal = ValorPrimeirasPecas + ValorSegundaPecas;
-
-        System.out.printf("VALOR A PAGAR: R$ %.2f\n", ValorTotal);
 
     }
 }

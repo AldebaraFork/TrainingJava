@@ -28,7 +28,9 @@ public class Main {
         System.out.println("Digite sua idade: ");
         idade = ler.nextInt();
         System.out.println("Você está acompanhado? ");
-        String verificar = ler.nextLine().toUpperCase();
+        String verificar = ler.next().toUpperCase();
+
+        //VERIFICA SE O USUARIO DIGITOU SE ESTÁ ACOMPANHADO
         if (verificar.isEmpty()){
             System.out.println("Insira um valor valido");
         }else if (verificar.equals("SIM") || verificar.equals("S")){
@@ -39,9 +41,18 @@ public class Main {
                 System.out.println("Bem vindo");
             }
             //SE FOR DE MAIOR
-            if (idade >= 18 ){
+            else if (idade >= 18 ){
                 System.out.println("Bem vindo");
             }
+        }else if (verificar.equals("NAO") || verificar.equals("N")){
+            acompanhado = false;
+            if (idade < 18 || acompanhado){
+                System.out.println("Você não pode entrar, é de menor e não está acompanhado");
+            }else if (idade >= 18 || acompanhado){
+                System.out.println("Bem vindo");
+            }
+        }else {
+            System.out.println("Insira um valor valido");
         }
 
 

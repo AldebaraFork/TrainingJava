@@ -7,16 +7,10 @@ public class Main {
     public static void main(String[] args) {
 
 
+        
 
-        int Numero = 0;
 
-        int NumeroSoma = 10;
-
-        for (int i = 0; i <= NumeroSoma  ; i++) {
-            Numero += i;
-            System.out.println(Numero);
-        }
-
+        
 
     }
 

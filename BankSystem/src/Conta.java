@@ -16,6 +16,7 @@ public class Conta {
     //PROPRIEDADES DE UMA CONTA JURIDICA
     protected String cnpj;
     protected String email;
+    protected String NomeTitularPJ;
 
 
 
@@ -43,9 +44,13 @@ public class Conta {
         }
         return this.saldo;
     }
-    public double Transferir(double valorTransferencia){
+    public double Transferir(double valorTransferencia, String NomeTransferencia){
         System.out.println("Insira a quantidade para transferir: ");
         valorTransferencia = ler.nextDouble();
+        System.out.println("Para quem quer transferir?");
+        NomeTransferencia = ler.nextLine().toUpperCase();
+        if (NomeTransferencia == this.nomeTitular || NomeTransferencia == this.NomeTitularPJ){
+        }
 
     }
 }

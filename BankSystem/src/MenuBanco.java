@@ -6,6 +6,7 @@ public class MenuBanco {
     //INSTANCIA
     Scanner ler = new Scanner(System.in);
     CriarContaPessoaFisica criaContaFisica = new CriarContaPessoaFisica();
+    CriarContaJuridica criarContaJuridica = new CriarContaJuridica();
 
     public void MenuPrincipal(){
 
@@ -48,6 +49,7 @@ public class MenuBanco {
                 criaContaFisica.CriaContaFisica();
                 break;
             case 2:
+
                 break;
             case 3:
                 break;

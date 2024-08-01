@@ -5,8 +5,10 @@ public class MenuBanco {
 
     //INSTANCIA
     Scanner ler = new Scanner(System.in);
-    CriarContaPessoaFisica criaContaFisica = new CriarContaPessoaFisica();
-    CriarContaJuridica criarContaJuridica = new CriarContaJuridica();
+    CriarContaPessoaFisica ContaFisica = new CriarContaPessoaFisica();
+    CriarContaJuridica ContaJuridica = new CriarContaJuridica();
+
+
 
     public void MenuPrincipal(){
 
@@ -21,7 +23,15 @@ public class MenuBanco {
                 MenuContas();
                 break;
             case 2:
-
+                System.out.println("Qual lista? PJ ou fisica? ");
+                var EscolhaListas = ler.next().toUpperCase();
+                if (EscolhaListas.equals("PJ")){
+                    ContaJuridica.VisualizarContasPJ();
+                }else if (EscolhaListas.equals("FISICA")){
+                    ContaFisica.ListaContasFisicas();
+                }else {
+                    System.out.println("Opção invalida");
+                }
                 break;
             case 3:
 
@@ -39,26 +49,23 @@ public class MenuBanco {
         System.out.println("Menu contas");
         System.out.println("1 - Cadastrar conta pessoa física");
         System.out.println("2 - Cadastrar conta jurídica");
-        System.out.println("3 - Lista de contas ");
-        System.out.println("4 - Excluir contas");
-        System.out.println("5 - Sair");
-        System.out.println("6 - Voltar ao menu principal");
+        System.out.println("3 - Excluir conta fisica");
+        System.out.println("4 - Excluir conta jurídica");
+        System.out.println("5 - Voltar ao menu principal");
         byte EscolhaMenu = ler.nextByte();
         switch(EscolhaMenu){
             case 1:
-                criaContaFisica.CriaContaFisica();
+                ContaFisica.CriaContaFisica();
                 break;
             case 2:
-
+                ContaJuridica.MetodoCriaContaJuridica();
                 break;
             case 3:
                 break;
             case 4:
+
                 break;
             case 5:
-                System.exit(0);
-                break;
-            case 6:
                 MenuPrincipal();
                 break;
             default:
@@ -67,6 +74,9 @@ public class MenuBanco {
 
         }
 
+    }
+    public void RetornarMenu(){
+        MenuPrincipal();
     }
 
 }

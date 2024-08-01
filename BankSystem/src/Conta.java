@@ -55,11 +55,11 @@ public class Conta {
         valorTransferencia = ler.nextDouble();
         System.out.println("Para quem quer transferir?");
         NomeTransferencia = ler.nextLine().toUpperCase();
-        if (NomeTransferencia == this.nomeTitular ){
+        if (NomeTransferencia.equals( this.nomeTitular) ){
             System.out.println("A conta se refere a pessoa fisica! ");
             this.saldo =+ valorTransferencia;
             return this.saldo;
-        }else if (NomeTransferencia == this.NomeTitularPJ){
+        }else if (NomeTransferencia.equals( this.NomeTitularPJ)){
             System.out.println("A conta se refere a pessoa jurídica! ");
             this.saldoPj =+ valorTransferencia;
             return this.saldoPj;

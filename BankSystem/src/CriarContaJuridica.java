@@ -78,7 +78,7 @@ public class CriarContaJuridica {
         MenuBanco menu = new MenuBanco();
         System.out.println("Contas PJ cadastradas: ");
         if (contasJuridicas.isEmpty()) {
-            System.out.println("Não há contas jurídicas cadastradas.");
+            System.out.println("Não há contasFisicas jurídicas cadastradas.");
         }else {
             for (CriarContaJuridica contaJuridica : contasJuridicas) {
                 System.out.println("----------------------------------");

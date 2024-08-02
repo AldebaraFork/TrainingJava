@@ -1,6 +1,4 @@
 
-import javax.print.DocFlavor;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +8,7 @@ public class CriarContaPessoaFisica
     //INSTANCIA
   Scanner ler = new Scanner(System.in);
   Conta novaConta = new Conta();
-  ArrayList<CriarContaPessoaFisica> contas = new ArrayList<>();
+  ArrayList<CriarContaPessoaFisica> contasFisicas = new ArrayList<>();
 
   //PROPRIEDADES PARA SALVAR NA LISTA
     public String NOME ;
@@ -36,7 +34,7 @@ public class CriarContaPessoaFisica
           }
           System.out.println("Digite seu CPF: ");
           novaConta.cpf = ler.nextLine();
-          if (novaConta.cpf.length() < 11 || novaConta.cpf.length() > 11 ) {
+          if (novaConta.cpf.length() != 11) {
               System.out.println("CPF invalido!");
               CriaContaFisica();
           } else if (novaConta.cpf.isEmpty()){
@@ -61,7 +59,7 @@ public class CriarContaPessoaFisica
           //ADICIONA O USUARIO A LSITA
           System.out.println("Conta criada com sucesso! " +
                   "Nome titular: " + novaConta.nomeTitular + " CPF: " + novaConta.cpf + " Agencia: " + novaConta.agencia + " Saldo: " + novaConta.saldo);
-          contas.add(contaFisica);
+          contasFisicas.add(contaFisica);
 
           menu.MenuPrincipal();
 
@@ -78,14 +76,18 @@ public class CriarContaPessoaFisica
   public void ListaContasFisicas(){
       MenuBanco menu = new MenuBanco();
      System.out.println("Contas cadastradas: ");
-      for(CriarContaPessoaFisica contaFisica : contas){
-          System.out.println("----------------------------------");
-          System.out.println("Nome: " + contaFisica.NOME);
-          System.out.println("CPF: " + contaFisica.CPF);
-          System.out.println("Agencia: " + contaFisica.AGENCIA);
-          System.out.println("Saldo na conta: " + contaFisica.SALDO);
-          System.out.println("-------------------------");
-      }
+     if(contasFisicas.isEmpty()){
+         System.out.println("lista vazia, Cadastre uma conta ");
+     }else {
+         for (CriarContaPessoaFisica contaFisica : contasFisicas) {
+             System.out.println("----------------------------------");
+             System.out.println("Nome: " + contaFisica.NOME);
+             System.out.println("CPF: " + contaFisica.CPF);
+             System.out.println("Agencia: " + contaFisica.AGENCIA);
+             System.out.println("Saldo na conta: " + contaFisica.SALDO);
+             System.out.println("-------------------------");
+         }
+     }
       menu.MenuPrincipal();
 
   }

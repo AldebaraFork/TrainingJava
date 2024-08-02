@@ -46,7 +46,7 @@ public class MenuBanco {
         }
     }
     public void MenuContas(){
-        System.out.println("Menu contas");
+        System.out.println("Menu contasFisicas");
         System.out.println("1 - Cadastrar conta pessoa física");
         System.out.println("2 - Cadastrar conta jurídica");
         System.out.println("3 - Excluir conta fisica");

@@ -8,6 +8,7 @@ public class CriarContaJuridica {
     Conta novaContaJuridica = new Conta();
      static ArrayList<CriarContaJuridica> contasJuridicas = new ArrayList<>();
 
+
     //PROPRIEDADES PARA SALVAR O PJ NA LISTA
     public String NOMEPJ;
     protected String CNPJ;
@@ -57,10 +58,6 @@ public class CriarContaJuridica {
             contaJuridica.SALDOPJ = novaContaJuridica.saldoPj;
 
 
-
-
-
-
             //SALVA A CONTA E EXIBE AO USUARIO
             contasJuridicas.add(contaJuridica);
 
@@ -94,6 +91,30 @@ public class CriarContaJuridica {
         menu.RetornarMenu();
 
     }
+    public void RemoverContasPJ() {
+        MenuBanco menu = new MenuBanco();
+        //VERIFICA SE A LISTA ESTÁ VAZIA ANTES DE EXERCUTAR O METODO
+        if (contasJuridicas.isEmpty()) {
+            System.out.println("Não há contas cadastradas");
+         } else {
+            //METODO PARA EXCLUIR A CONTA
+            System.out.println("Insira o email da conta que deseja excluir: ");
+            String RemoverPJ = ler.nextLine();
+            for (CriarContaJuridica contaJuridica : contasJuridicas) {
+                if (contaJuridica.EMAIL.equals(RemoverPJ)) {
+                    contasJuridicas.remove(contaJuridica);
+                    System.out.println("Conta removida com sucesso!");
+                    menu.RetornarMenu();
+                    break;
+                }
 
+            }
+            //VERIFICA SE O USUARIO INSERIU O NOME PARA EXCLUIR A CONTA
+                 if (RemoverPJ.isEmpty()) {
+                     System.out.println("Insira um nome valido");
+                     menu.RetornarMenu();
+                 }
+        }
 
+    }
 }

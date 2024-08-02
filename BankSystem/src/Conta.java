@@ -7,6 +7,7 @@ public class Conta {
     //INSTANCIAS
     Scanner ler = new Scanner(System.in);
 
+
     //PROPRIEDADES DE UMA CONTA FISICA
     protected String nomeTitular;
     protected double saldo;
@@ -38,6 +39,7 @@ public class Conta {
     }
     //SAQUE
     public double Saque(double valorSaque){
+
         System.out.println("Insira a quantidade para saque: ");
         valorSaque = ler.nextDouble();
         if (valorSaque > this.saldo || valorSaque < 0){
@@ -51,26 +53,34 @@ public class Conta {
 
     //TRANSFERIR PARA OUTRA CONTA
     public boolean Transferir(double valorTransferencia, String NomeTransferencia){
+        //INSTANCIAS
+        CriarContaJuridica contaJuridica = new CriarContaJuridica();
+        CriarContaPessoaFisica contaFisica = new CriarContaPessoaFisica();
+
+
+        //METODO PARA AS TRANSAÇÕES
         System.out.println("Insira a quantidade para transferir: ");
         valorTransferencia = ler.nextDouble();
         System.out.println("Para quem quer transferir?");
         NomeTransferencia = ler.nextLine().toUpperCase();
-        if (NomeTransferencia.equals(this.nomeTitular) ){
+        if (NomeTransferencia.equals(contaFisica.NOME) ){
             System.out.println("A conta se refere a pessoa fisica! ");
             this.saldo =- valorTransferencia;
             if(this.saldo < valorTransferencia){
                 System.out.println("Saldo insuficiente");
+            }else {
+                System.out.println("Transferencia realizada com sucesso");
+                return true;
             }
-            System.out.println("Transferencia realizada com sucesso");
-            return true;
-        }else if (NomeTransferencia.equals( this.NomeTitularPJ)){
+        }else if (NomeTransferencia.equals(contaJuridica.NOMEPJ)){
             System.out.println("A conta se refere a pessoa jurídica! ");
             this.saldoPj =- valorTransferencia;
             if(this.saldoPj < valorTransferencia){
                 System.out.println("Saldo insuficiente");
+            }else {
+                System.out.println("Transferencia realizada com sucesso");
+                return true;
             }
-            System.out.println("Transferencia realizada com sucesso");
-            return true;
         }else {
             System.out.println("Nome não cadastrado no sistema, tente novamente");
         }

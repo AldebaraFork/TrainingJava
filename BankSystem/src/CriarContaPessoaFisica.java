@@ -92,6 +92,32 @@ public class CriarContaPessoaFisica
 
   }
 
+  public void RemoverPessoaFisica(){
+      MenuBanco menu = new MenuBanco();
+      //VERIFICA SE A LISTA ESTÁ VAZIA ANTES DE EXERCUTAR O METODO
+      if (contasFisicas.isEmpty()) {
+          System.out.println("Não há contas cadastradas");
+      } else {
+          //METODO PARA EXCLUIR A CONTA
+          System.out.println("Insira o email da conta que deseja excluir: ");
+          String RemoverFisica = ler.nextLine();
+          for (CriarContaPessoaFisica contaFisica : contasFisicas) {
+              if (contaFisica.NOME.equals(RemoverFisica)) {
+                  contasFisicas.remove(contaFisica);
+                  System.out.println("Conta removida com sucesso!");
+                  menu.RetornarMenu();
+                  break;
+              }
+
+          }
+          //VERIFICA SE O USUARIO INSERIU O NOME PARA EXCLUIR A CONTA
+          if (RemoverFisica.isEmpty()) {
+              System.out.println("Insira um nome valido");
+              menu.RetornarMenu();
+          }
+      }
+
+  }
 
 
 

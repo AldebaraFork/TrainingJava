@@ -7,13 +7,14 @@ public class MenuBanco {
     Scanner ler = new Scanner(System.in);
     CriarContaPessoaFisica ContaFisica = new CriarContaPessoaFisica();
     CriarContaJuridica ContaJuridica = new CriarContaJuridica();
+    Transacoes transacoes = new Transacoes();
 
 
 
     public void MenuPrincipal(){
 
         System.out.println("Menu principal, o que deseja fazer?");
-        System.out.println("1 - Cadastrar conta");
+        System.out.println("1 - Gerenciar contas");
         System.out.println("2 - Lista de contas");
         System.out.println("3 - Área de transações");
         System.out.println("4 - Sair");
@@ -46,7 +47,7 @@ public class MenuBanco {
         }
     }
     public void MenuContas(){
-        System.out.println("Menu contasFisicas");
+        System.out.println("Menu de contas, o que deseja fazer?");
         System.out.println("1 - Cadastrar conta pessoa física");
         System.out.println("2 - Cadastrar conta jurídica");
         System.out.println("3 - Excluir conta fisica");
@@ -63,7 +64,7 @@ public class MenuBanco {
             case 3:
                 break;
             case 4:
-
+                ContaJuridica.RemoverContasPJ();
                 break;
             case 5:
                 MenuPrincipal();
@@ -84,8 +85,10 @@ public class MenuBanco {
         short EscolhaTransacoes = ler.nextShort();
         switch(EscolhaTransacoes){
             case 1:
+                transacoes.MetodoTransacoes();
                 break;
             case 2:
+                transacoes.MetodoTransacoes();
                 break;
             case 3:
                 RetornarMenu();

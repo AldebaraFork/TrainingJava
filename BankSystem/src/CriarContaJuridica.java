@@ -28,6 +28,7 @@ public class CriarContaJuridica {
             //VALIDA O CNPJ
             if (novaContaJuridica.cnpj.length() != 11) {
                 System.out.println("Insira um CNPJ valido! ");
+                MetodoCriaContaJuridica();
             }
             //VALIDA O EMAIL
             System.out.println("Digite o email: ");
@@ -43,6 +44,7 @@ public class CriarContaJuridica {
             novaContaJuridica.NomeTitularPJ = ler.nextLine().toUpperCase();
             if (novaContaJuridica.NomeTitularPJ.isEmpty() ){
                 System.out.println("Insira um nome valido! ");
+                MetodoCriaContaJuridica();
             }
 
 

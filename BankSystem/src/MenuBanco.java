@@ -34,7 +34,7 @@ public class MenuBanco {
                 }
                 break;
             case 3:
-
+                MenuTransacoes();
                 break;
             case 4:
                 System.exit(0);
@@ -74,6 +74,27 @@ public class MenuBanco {
 
         }
 
+    }
+    public void MenuTransacoes(){
+        System.out.println("Menu de Transações");
+        System.out.println("1 - Transferencia para conta fisica");
+        System.out.println("2 - Transferencia para conta PJ");
+        System.out.println("3 - Voltar ao menu principal");
+        System.out.println("4 - Sair");
+        short EscolhaTransacoes = ler.nextShort();
+        switch(EscolhaTransacoes){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                RetornarMenu();
+                break;
+            case 4:
+                System.exit(0);
+                break;
+
+        }
     }
     public void RetornarMenu(){
         MenuPrincipal();

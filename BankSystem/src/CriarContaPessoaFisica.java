@@ -8,7 +8,7 @@ public class CriarContaPessoaFisica
     //INSTANCIA
   Scanner ler = new Scanner(System.in);
   Conta novaConta = new Conta();
-  ArrayList<CriarContaPessoaFisica> contasFisicas = new ArrayList<>();
+  static ArrayList<CriarContaPessoaFisica> contasFisicas = new ArrayList<>();
 
   //PROPRIEDADES PARA SALVAR NA LISTA
     public String NOME ;

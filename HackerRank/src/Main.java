@@ -7,19 +7,11 @@ public class Main {
         //INSTANCIAS
         Scanner ler = new Scanner(System.in);
         Conta conta = new Conta();
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente("41291732861", "532025933");
+
+        System.out.println("cpf: " + cliente.getCpf());
+        System.out.println("rg: " + cliente.getRg());
 
 
-       //INICIO DO PROGRAMA
-        System.out.println("Testando os metodos get e sets");
-
-
-
-        conta.SetNomeConta("");
-        conta.SetEmailUsuario("");
-        conta.SetSenhaUsuario("");
-
-
-        System.out.println("Dados cadastrados, nome do usuario: " + conta.getNomeConta() + " email: " + conta.getEmailUsuario() + " senha: " + conta.getSenhaUsuario());
     }
 }

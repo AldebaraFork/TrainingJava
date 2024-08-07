@@ -7,6 +7,27 @@ public class Cliente {
     private int idade;
     private char sexo;
 
+    //CONSTRUTOR DE UM CLIENTE
+    public Cliente(String cpf, String rg){
+        //VALIDA O CPF
+        if(cpf.length() != 11 ){
+            System.out.println("CPF invalido! Tente novamente.");
+            System.exit(0);
+        }else {
+            System.out.println("CPF validado!");
+            this.cpf = cpf;
+        }
+        //VALIDA O RG
+        if(rg.length() != 9){
+            System.out.println("RG invalido! Tente novamente.");
+            System.exit(0);
+        }else {
+            System.out.println("RG validado!");
+            this.rg = rg;
+        }
+
+    }
+
     //METODOS DE TODO USUARIO
 
 
@@ -30,6 +51,16 @@ public class Cliente {
     public void setSexo(char sexo){
         this.sexo = sexo;
     }
+
+    public String getCpf(){
+        return this.cpf;
+    }
+
+    public String getRg(){
+        return this.rg;
+    }
+
+
 
     
 

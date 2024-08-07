@@ -10,9 +10,16 @@ public class Main {
         Cliente cliente = new Cliente();
 
 
-        conta.SetNomeConta(null);
-        
+       //INICIO DO PROGRAMA
+        System.out.println("Testando os metodos get e sets");
 
-        System.out.println(conta.getNomeConta());
+
+
+        conta.SetNomeConta("");
+        conta.SetEmailUsuario("");
+        conta.SetSenhaUsuario("");
+
+
+        System.out.println("Dados cadastrados, nome do usuario: " + conta.getNomeConta() + " email: " + conta.getEmailUsuario() + " senha: " + conta.getSenhaUsuario());
     }
 }

@@ -18,7 +18,6 @@ public class Funcionario {
     }
 
     //METODOS GET SET NOME
-
     public String getNome() {
         return this.nome;
     }
@@ -40,6 +39,23 @@ public class Funcionario {
         salario = ler.nextDouble();
         if (salario < 1400) {
             System.out.println("Salario invalido, no mínimo um salário mínimo por funcionario");
+            System.exit(0);
+        }else {
+            this.salario = salario;
+        }
+    }
+
+    //METODOS GET SET CPF
+    public String getCpf() {
+        return this.cpf;
+    }
+    public void setCpf(String cpf) {
+        cpf = ler.nextLine();
+        if (cpf == null || cpf.isBlank() || cpf.length() != 11) {
+            System.out.println("CPF invalido tente novamente");
+            System.exit(0);
+        }else {
+            this.cpf = cpf;
         }
     }
 }

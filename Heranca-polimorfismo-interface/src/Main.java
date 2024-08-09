@@ -1,11 +1,18 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+
     public static void main(String[] args) {
 
-        Supervisor supervisor  = new Supervisor();
-        supervisor.setNome("");
+        String nome ;
+        int idade ;
 
-        System.out.println(supervisor.getNome());
+
+        nome = "Abner";
+        idade = 13;
+
+        System.out.println(nome + " " + idade);
+
     }
 }

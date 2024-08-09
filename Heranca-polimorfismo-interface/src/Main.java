@@ -5,14 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String nome ;
-        int idade ;
 
+        Supervisor dudu = new Supervisor();
 
-        nome = "Abner";
-        idade = 13;
+        dudu.setNome("");
+        System.out.println(dudu.getNome());
 
-        System.out.println(nome + " " + idade);
+        dudu.setSenha("");
+        System.out.println(dudu.getSenha());
 
+        dudu.setSalario(0);
+        System.out.println("Bonificação: " + dudu.getBonificacao());
     }
 }

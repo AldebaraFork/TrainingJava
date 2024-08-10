@@ -31,19 +31,26 @@ public class Funcionario {
 
     //METODOS GET SET SALARIO
     public double getSalario() {
-
         return this.salario;
     }
-    public void setSalario(double salario) {
-        System.out.println("Insira o salario do Funcionario");
+    public void validaSalario(double salario){
+        System.out.println("Insira o salario do funcionario");
         salario = ler.nextDouble();
-        if (salario < 1400) {
-            System.out.println("Salario invalido, no mínimo um salário mínimo por funcionario");
+        if (salario <= 1400)
+        {
+            System.out.println("Salario invalido");
             System.exit(0);
+
         }else {
-            this.salario = salario;
-            System.out.println("Salario atualizado com sucesso");
+            setSalario(salario);
         }
+    }
+    public void setSalario(double salario) {
+        this.salario = salario;
+
+    }
+    public double getBonificacao(){
+        return this.salario * 0.15;
     }
 
     //METODOS GET SET CPF
@@ -52,7 +59,7 @@ public class Funcionario {
     }
     public void setCpf(String cpf) {
         System.out.println("Insira o cpf do funcionario");
-        cpf = ler.next();
+        cpf = ler.nextLine();
         if (cpf == null || cpf.isBlank() || cpf.length() != 11) {
             System.out.println("CPF invalido tente novamente");
             System.exit(0);

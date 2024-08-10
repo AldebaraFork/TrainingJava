@@ -5,16 +5,19 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Gerente gerente = new Gerente();
+        gerente.setNome("");
+        System.out.println(gerente.getNome());
 
-        Supervisor dudu = new Supervisor();
+        gerente.setCpf("");
+        System.out.println(gerente.getCpf());
 
-        dudu.setNome("");
-        System.out.println(dudu.getNome());
+        gerente.validaSalario(0);
+        System.out.println(gerente.getSalario());
 
-        dudu.setSenha("");
-        System.out.println(dudu.getSenha());
+        gerente.setSenha("");
+       System.out.println(gerente.getSenha());
 
-        dudu.setSalario(0);
-        System.out.println("Bonificação: " + dudu.getBonificacao());
+        System.out.println("total bonificação: " + gerente.getBonificacao());
     }
 }

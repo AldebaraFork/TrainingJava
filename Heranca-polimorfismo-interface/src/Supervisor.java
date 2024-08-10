@@ -22,9 +22,7 @@ public class Supervisor extends Funcionario{
 
     //SALARIO SUPERVISOR
 
-    public double getSalario(){
-        return super.getSalario();
-    }
+
     public void validaSalario(double salario){
         System.out.println("Insira o salario: ");
         salario = ler.nextDouble();

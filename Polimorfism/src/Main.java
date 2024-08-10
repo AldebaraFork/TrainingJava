@@ -3,14 +3,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        Cliente theo = new Cliente("", "", 0, "", "");
+        Funcionario dudu = new Funcionario("", "", 0, "", "");
 
-        System.out.println("NOME: " + theo.getNome());
-        System.out.println("EMAIL: " + theo.getEmail());
-        System.out.println("CPF: " + theo.getCpf());
-        System.out.println("IDADE: " + theo.getIdade());
-        System.out.println("SENHA: " + theo.getSenha());
-
+        System.out.println("NOME: " + dudu.getNome());
+        System.out.println("EMAIL: " + dudu.getEmail());
+        System.out.println("CPF: " + dudu.getCpf());
+        System.out.println("IDADE: " + dudu.getIdade());
+        System.out.println("SENHA: " + dudu.getSenha());
+        System.out.println("SALARIO: " + dudu.getSalario());
 
     }
 }

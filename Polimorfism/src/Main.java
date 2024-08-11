@@ -3,7 +3,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        Funcionario dudu = new Funcionario("", "", 0, "", "");
+        Supervisor dudu = new Supervisor("", "", 0, "", "");
 
         System.out.println("NOME: " + dudu.getNome());
         System.out.println("EMAIL: " + dudu.getEmail());
@@ -11,6 +11,8 @@ public class Main {
         System.out.println("IDADE: " + dudu.getIdade());
         System.out.println("SENHA: " + dudu.getSenha());
         System.out.println("SALARIO: " + dudu.getSalario());
+        System.out.println("BONUS: " + dudu.getBonusSalario());
+        System.out.println("SALARIO TOTAL: " + dudu.getSalarioComBonus());
 
     }
 }

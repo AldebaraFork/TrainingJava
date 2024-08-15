@@ -3,7 +3,8 @@
 public class Main {
     public static void main(String[] args) {
 
-       Divisao divide = new Divisao(0,0);
-       System.out.println(divide.getCalculo());
+        Menu menu = new Menu();
+        menu.MenuPrincipal();
+
     }
 }

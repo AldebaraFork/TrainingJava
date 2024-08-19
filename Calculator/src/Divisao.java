@@ -24,12 +24,11 @@ public class Divisao extends Calcular{
                 System.out.println("Não é possivel dividir por 0, tente novamente");
                 obterNumero(0,0);
             }else {
+                //ATRIBUI OS NUMEROS INSERIDOS PELO USUARIO
+                setPrimeiroNumero(primeiroNumero);
+                setSegundoNumero(segundoNumero);
 
             }
-            //ATRIBUI OS NUMEROS INSERIDOS PELO USUARIO
-            setPrimeiroNumero(primeiroNumero);
-            setSegundoNumero(segundoNumero);
-
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Digite um número.");
             obterNumero(0,0);

@@ -17,28 +17,35 @@ public class Menu {
             System.out.println("2 - Subtrair");
             System.out.println("3 - Multiplicação");
             System.out.println("4 - Dividir");
+            System.out.println("5 - Resto da Divisão");
             System.out.println("0 - Sair");
             short opcaoMenu = ler.nextShort();
             switch (opcaoMenu) {
                 case 1:
-                    Somar soma = new Somar(0,0);
+                    Calcular soma = new Somar(0,0);
                     soma.obterNumero(0,0);
                     System.out.println("Resultado da soma: " + soma.getCalculo());
+
                     break;
                 case 2:
-                    Subtracao menos = new Subtracao(0,0);
+                    Calcular menos = new Subtracao(0,0);
                     menos.obterNumero(0,0);
                     System.out.println("Resultado da subtração: " + menos.getCalculo());
                     break;
                 case 3:
-                    Multiplicacao vezes = new Multiplicacao(0,0);
+                    Calcular vezes = new Multiplicacao(0,0);
                     vezes.obterNumero(0,0);
                     System.out.println("Resultado da multiplicacao: " + vezes.getCalculo());
                     break;
                 case 4:
-                    Divisao divisao = new Divisao(0,0);
+                    Calcular divisao = new Divisao(0,0);
                     divisao.obterNumero(0,0);
                     System.out.println("Resultado da divisão: " + divisao.getCalculo());
+                    break;
+                case 5:
+                    Calcular mod = new Mod(0,0);
+                    mod.obterNumero(0,0);
+                    System.out.println("Resultado do resto da divisão: " + mod.getCalculo());
                     break;
                 case 0:
                     System.out.println("Saindo do app....");
@@ -49,6 +56,7 @@ public class Menu {
                     MenuPrincipal();
                     break;
             }
+            MenuPrincipal();
         }catch(InputMismatchException exception){
             //LIDA COM ERRO DE CASO O USUARIO NÃO INSIRA UM NUMERO
             System.out.println("Ocorreu o erro: " +exception.getMessage() + " Tente novamente! ");

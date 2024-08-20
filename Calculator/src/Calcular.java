@@ -52,7 +52,7 @@ public class Calcular {
                 setPrimeiroNumero(primeiroNumero);
                 setSegundoNumero(segundoNumero);
 
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.println("Entrada inválida. Digite um número.");
                obterNumero(0,0);
             }

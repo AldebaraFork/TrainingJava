@@ -18,6 +18,7 @@ public class Menu {
             System.out.println("3 - Multiplicação");
             System.out.println("4 - Dividir");
             System.out.println("5 - Resto da Divisão");
+            System.out.println("6 - Menu de porcentagem");
             System.out.println("0 - Sair");
             short opcaoMenu = ler.nextShort();
             switch (opcaoMenu) {
@@ -47,6 +48,9 @@ public class Menu {
                     mod.obterNumero(0,0);
                     System.out.println("Resultado do resto da divisão: " + mod.getCalculo());
                     break;
+                case 6:
+                    MenuPorcentagem();
+                    break;
                 case 0:
                     System.out.println("Saindo do app....");
                     System.exit(0);
@@ -61,6 +65,37 @@ public class Menu {
             //LIDA COM ERRO DE CASO O USUARIO NÃO INSIRA UM NUMERO
             System.out.println("Ocorreu o erro: " +exception.getMessage() + " Tente novamente! ");
             MenuPrincipal();
+        }
+    }
+    public void MenuPorcentagem(){
+        System.out.println("Escolha uma opção abaixo, em seguida insira o numero que deseja saber a porcentagem ");
+        System.out.println("1 - Somar porcentagem");
+        System.out.println("2 - Subtrair porcentagem");
+        System.out.println("3 - Retornar ao menu Principal");
+        System.out.println("4 - Sair");
+        short opcaoMenu = ler.nextShort();
+        switch(opcaoMenu){
+            case 1:
+                SomarPorcentagem somarPorcentagem = new SomarPorcentagem(0,0);
+                somarPorcentagem.obterNumero(0,0);
+                System.out.println("Resultado com a porcentagem: " + somarPorcentagem.getCalculo());
+                break;
+            case 2:
+                Porcentagem porcento = new Porcentagem(0,0);
+                porcento.obterNumero(0,0);
+                System.out.println("Resultado da subtração da porcentagem: " + porcento.getCalculo());
+                break;
+            case 3:
+                MenuPrincipal();
+                break;
+            case 4:
+                System.out.println("Saindo do app....");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Opção invalida! Tente novamente");
+                MenuPorcentagem();
+                break;
         }
     }
 }

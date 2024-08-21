@@ -46,7 +46,7 @@ public class Calcular {
                 //OBTEM OS NUMEROS DE ENTRADA PARA O USUARIO
                 System.out.println("Digite o primeiro numero : ");
                 primeiroNumero = ler.nextDouble();
-                System.out.println("Digite o segundo numero para visualizar as operações");
+                System.out.println("Digite o segundo numero para completar a operação");
                 segundoNumero = ler.nextDouble();
                 //ATRIBUI OS NUMEROS INSERIDOS PELO USUARIO
                 setPrimeiroNumero(primeiroNumero);
@@ -54,7 +54,7 @@ public class Calcular {
 
             } catch (Exception e) {
                 System.out.println("Entrada inválida. Digite um número.");
-               obterNumero(0,0);
+
             }
     }
 

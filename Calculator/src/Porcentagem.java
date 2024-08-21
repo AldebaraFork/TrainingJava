@@ -6,6 +6,8 @@ public class Porcentagem extends Calcular{
 
     @Override
     public double getCalculo() {
-        return getPrimeiroNumero() - getSegundoNumero();
+        return getPrimeiroNumero() * getSegundoNumero();
     }
+
+
 }

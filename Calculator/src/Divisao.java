@@ -13,6 +13,8 @@ public class Divisao extends Calcular{
     }
 
     //OBTEM O VALOR DOS NUMEROS, E CALCULA UTILIZANDO O getCalculo
+    //REESCRITA DE METODO, POIS 0 NÃO É UM NUMERO DIVISIVEL 
+    @Override
     public  void obterNumero(double primeiroNumero, double segundoNumero) {
         try {
             //OBTEM OS NUMEROS DE ENTRADA PARA O USUARIO
@@ -31,7 +33,7 @@ public class Divisao extends Calcular{
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Digite um número.");
-            obterNumero(0,0);
+
         }
     }
 }

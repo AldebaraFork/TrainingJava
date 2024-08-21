@@ -26,27 +26,32 @@ public class Menu {
                     Calcular soma = new Somar(0,0);
                     soma.obterNumero(0,0);
                     System.out.println("Resultado da soma: " + soma.getCalculo());
+                    MenuPrincipal();
 
                     break;
                 case 2:
                     Calcular menos = new Subtracao(0,0);
                     menos.obterNumero(0,0);
                     System.out.println("Resultado da subtração: " + menos.getCalculo());
+                    MenuPrincipal();
                     break;
                 case 3:
                     Calcular vezes = new Multiplicacao(0,0);
                     vezes.obterNumero(0,0);
                     System.out.println("Resultado da multiplicacao: " + vezes.getCalculo());
+                    MenuPrincipal();
                     break;
                 case 4:
                     Calcular divisao = new Divisao(0,0);
                     divisao.obterNumero(0,0);
                     System.out.println("Resultado da divisão: " + divisao.getCalculo());
+                    MenuPrincipal();
                     break;
                 case 5:
                     Calcular mod = new Mod(0,0);
                     mod.obterNumero(0,0);
                     System.out.println("Resultado do resto da divisão: " + mod.getCalculo());
+                    MenuPrincipal();
                     break;
                 case 6:
                     MenuPorcentagem();
@@ -79,11 +84,14 @@ public class Menu {
                 SomarPorcentagem somarPorcentagem = new SomarPorcentagem(0,0);
                 somarPorcentagem.obterNumero(0,0);
                 System.out.println("Resultado com a porcentagem: " + somarPorcentagem.getCalculo());
+                MenuPrincipal();
                 break;
             case 2:
                 Porcentagem porcento = new Porcentagem(0,0);
                 porcento.obterNumero(0,0);
+                porcento.getCalculo();
                 System.out.println("Resultado da subtração da porcentagem: " + porcento.getCalculo());
+                MenuPrincipal();
                 break;
             case 3:
                 MenuPrincipal();

@@ -3,9 +3,9 @@
 public class Main {
 
     public static void main(String[] args) {
-        Conta conta = new Conta("", "", " ");
 
-        conta.SetNome("");
-        System.out.println(conta.GetNome());
+        ContaFisica contaFisica = new ContaFisica();
+        contaFisica.SetNome("");
+        System.out.println(contaFisica.GetNome());
     }
 }

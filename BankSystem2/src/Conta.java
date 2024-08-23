@@ -9,7 +9,7 @@ public class Conta {
     Scanner ler = new Scanner(System.in);
 
     //LISTA PARA SALVAR OS CLIENTES
-    static ArrayList<Conta> contasClientes = new ArrayList<Conta>();
+    static ArrayList<Conta> contasClientes = new ArrayList<>();
 
 
     //PROPRIEDADES QUE TODA CONTA TEM
@@ -18,10 +18,6 @@ public class Conta {
     private int NumeroConta;
     private String Email;
 
-    //CONSTRUTOR QUE TODA CONTA PRECISARÁ INSERIR
-    public Conta(String nome, String email, String numeroConta ){
-
-    }
 
     //METODOS GET DAS PROPRIEDADES
     public String GetNome(){
@@ -40,7 +36,7 @@ public class Conta {
     //METODOS SET DAS PROPRIEDADES, TODAS VALIDAM A INFORMAÇÃO E SAALVAM DIRETAMENTE NO METODO
     public void SetNome(String nome){
         try {
-            System.out.println("Insira o nome: ");
+            System.out.println("Insira o nome completo: ");
             nome = ler.nextLine();
             if (nome.isBlank() || nome.isEmpty()) {
                 System.out.println("Nome invalido! tente novamente");
@@ -73,14 +69,14 @@ public class Conta {
     public void SetEmail(String email){
         try {
             System.out.println("Insira o email: ");
-            email = ler.nextLine();
+            email = ler.next();
             //VERIFICA SE O EMAIL ESTA VAZIO
             if (email.isBlank() || email.isEmpty()) {
                 System.out.println("Email invalido! tente novamente");
                 SetEmail("");
             }//CASO O EMAIL CONTENHA @ E . salva
             else if (email.contains("@") && email.contains(".")) {
-                System.out.println("Email : " + Email + " , salvo com sucesso! ");
+                System.out.println("Email : " + email + " , salvo com sucesso! ");
                 this.Email = email;
             } else {
                 System.out.println("Email invalido! tente novamente");
@@ -105,6 +101,54 @@ public class Conta {
         }catch (InputMismatchException e){
             System.out.println("Ocorreu o erro: " + e.getMessage() + " Tente inserir um numero!");
             SetNumeroConta(0);
+        }
+    }
+
+
+    //SALVA O USUARIO NA LISTA
+    public void SalvarContas(){
+        try {
+            //VERIFICA CASO O USUARIO DESEJASALVAR O USUARIO OU NAO
+            System.out.println("Deseja salvar esse cliente? S/N");
+            String opcaoSalvar = ler.next();
+            //CASO O USUARIO DESEJE SALVAR
+            if (opcaoSalvar.contains("S") || opcaoSalvar.contains("s")) {
+
+                System.out.println("===========================");
+                //INSERIR AQUI PARA SALVAR
+                System.out.println("Salvo com sucesso!");
+
+            }//CASO O USUARIO DESEJE SALVAR
+            else if (opcaoSalvar.contains("N") || opcaoSalvar.contains("n")) {
+                System.out.println("Conta nao criada! Retornando ao menu");
+                //INSERIR METODO PARA RETORNAR AO MENU
+
+            } else {
+                System.out.println("Opção invalida! Tente novamente");
+
+            }
+        }//VERIFICAÇÃO DE ERRO
+        catch(InputMismatchException e){
+            System.out.println("Ocorreu o erro: " + e.getMessage() + " Tente novamente");
+            SalvarContas();
+        }
+    }
+
+    public void visualizarContas() {
+        System.out.println("----------------------------------");
+        System.out.println("Lista de usuários:");
+
+        if (contasClientes.isEmpty()) {
+            System.out.println("Lista vazia! Tente cadastrar um usuário.");
+        } else {
+            for (Conta conta : contasClientes) {
+                if (conta != null) { // Verifica se o elemento não é nulo
+                    System.out.printf("Nome: %-20s Email: %-25s Número da conta: %-10d Idade: %d%n",
+                            conta.GetNome(), conta.GetEmail(), conta.GetNumeroConta(), conta.GetIdade());
+                } else {
+                    System.out.println("Elemento nulo encontrado na lista.");
+                }
+            }
         }
     }
 }
